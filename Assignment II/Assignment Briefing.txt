@@ -1,0 +1,45 @@
+1. Write A Lex Source Program (.l File), e.g. example.l
+2. Generate .C File Based On The Lex Source Program Using Flex
+3. Compile The C Program Into .out File or .exe File
+4. Test The Generated Simple Lexical Analyzer
+
+- Implement 2 Main Functions
+  - Translate Your Student ID Number In The Import File --> Your Name / Nickname
+  - Count ID & Chars In The Import File
+
+
+* Example
+
+Import Source File
+
+201693072 Hello World
+Flex (The Fast Lexical Analyzer)
+Flex is a fast lexical analyser generator.
+It is a tool for generating programs that perform pattern-matching on text.
+Flex is a free (but non-GNU) implementation of the original Unix lex program.
+The project repository is now hosted at github: https://github.com/westes/flex.
+201693072
+
+Output Text
+
+Karaya_12 Hello World
+Flex (The Fast Lexical Analyzer)
+Flex is a fast lexical analyser generator.
+It is a tool for generating programs that perform pattern-matching on text.
+Flex is a free (but non-GNU) implementation of the original Unix lex program.
+The project repository is now hosted at github: https://github.com/westes/flex.
+Karaya_12
+Number of Lines: %d, Number of Chars: %d
+
+
+Terminal Commands (Linux)
+
+File Stream
+
+example.l (Flex Source Program) --> lex.yy.c (Flex Generated C Program) --> example.out (Complied C File) --> Import Text File --> Display Final Result In CLI
+
+Commands
+
+$ flex example.l
+$ gcc -o example lex.yy.c -lfl
+$ ./example < Text.txt
