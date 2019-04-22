@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/karaya_12/Coding/Compiler Principles/Assignment I/FileIO/main.cpp
+cstdio
+-
+cstdlib
+-
+fstream
+-
+iostream
+-
+unistd.h
+-
+
