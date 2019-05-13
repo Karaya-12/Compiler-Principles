@@ -10,10 +10,10 @@
 #define MAX_COLS 20
 using namespace std;
 
-int num_Rules = -1;                           // Production Rule Counter
-char production[MAX_ROWS][MAX_COLS] = {0};    // Production Rules
-char FIRST_Result[MAX_ROWS][MAX_COLS] = {0};  // FIRST Set Result
-char FOLLOW_Result[MAX_ROWS][MAX_COLS] = {0}; // FOLLOW Set Result
+int num_Prod = -1;                      // Production Rule Counter
+char production[MAX_ROWS][MAX_COLS];    // Production Rules
+char FIRST_Result[MAX_ROWS][MAX_COLS];  // FIRST Set Result
+char FOLLOW_Result[MAX_ROWS][MAX_COLS]; // FOLLOW Set Result
 
 set<char>::iterator iter;
 set<char> set_first;  // Temp FIRST Set for Current Production
@@ -26,22 +26,22 @@ set<char> set_follow; // Temp FOLLOW Set for Current Production
  * 4. Only Upper Case letters are Non-Terminals, thus everything else is a terminal
  */
 
-void calculate_first(char start_Symbol, int pre_Rule, int pre_Column)
+void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
 {
-    // Check Every Iteration's Start Symbol & Find The Matching Production
-    for (int i = 0; i < num_Rules; i++)
+    // Find The Match for Current Production's LHS
+    for (int i = 0; i < num_Prod; i++)
     {
-        if (production[i][0] == start_Symbol)
+        if (production[i][0] == prod_LHS)
         {
-            // Case --> Production Start Symbol is Terminal (e.g. 4 -> +aB)
+            // Case --> Production LHS is Terminal (e.g. 4 -> +aB)
             // * Result I --> FIRST Set += Starting Symbol
-            if (!(isupper(start_Symbol)))
+            if (!(isupper(prod_LHS)))
             {
-                set_first.insert(start_Symbol);
+                set_first.insert(prod_LHS);
                 return;
             }
 
-            // Case --> Production Start Symbol is NOT Terminal
+            // Case --> Production LHS is Non-Terminal
             for (int j = 5; j < strlen(production[i]); j++) // Start With 5th Char
             {
                 char previous = production[i][j - 1];
@@ -53,13 +53,13 @@ void calculate_first(char start_Symbol, int pre_Rule, int pre_Column)
                 else if (production[i][j] == '#')
                 {
                     set_first.insert('#');
-                    // Case I/1 --> Current Iteration's Production Contains ε & Has Following Non-Terminal
+                    // Case I/1 --> Current Iteration's Production Contains ε & Has Follow Up Non-Terminal
                     // * Result III --> Continue to Iterate, Start from The Next Character from Previous Iteration
-                    if (production[pre_Rule][pre_Column] != '\0' && (pre_Rule != 0 || pre_Column != 0))
-                        calculate_first(production[pre_Rule][pre_Column], pre_Rule, (pre_Column + 1));
+                    if (production[pre_Prod][pre_Column] != '\0' && (pre_Prod != 0 || pre_Column != 0))
+                        calculate_first(production[pre_Prod][pre_Column], pre_Prod, (pre_Column + 1));
                 }
 
-                // Case II --> Production Starts With a Terminal (e.g. E -> +TE')
+                // Case II --> Production Starts With Terminal (e.g. E -> +TE')
                 // * Result IV --> FIRST Set += Non-Terminal Character
                 else if (!isupper(production[i][j]))
                 {
@@ -80,21 +80,20 @@ void fun_first_set()
 {
     cout << "FIRST Set of Given Grammar Rules\n"
          << endl;
-    for (int num_Prod = 0; num_Prod < num_Rules; num_Prod++)
+    for (int i = 0; i < num_Prod; i++)
     {
-        int flag = 0, column = 0;
-
         // Call Function to Calculate FIRST Set of Current Production
-        char start_Symbol = production[num_Prod][0];
-        calculate_first(start_Symbol, 0, 0);
+        char prod_LHS = production[i][0];
+        calculate_first(prod_LHS, 0, 0);
 
-        // Display The Final FIRST Set Result of Current Grammar Production
-        cout << "FIRST(" << start_Symbol << ") = { ";
-        FIRST_Result[num_Prod][0] = start_Symbol; // First Character is Start Symbol
+        // Display The Final FIRST Set Result of Current Production
+        int column = 0;
+        cout << "FIRST(" << prod_LHS << ") = { ";
+        FIRST_Result[i][0] = prod_LHS; // First Character is LHS
         for (iter = set_first.begin(); iter != set_first.end(); iter++)
         {
             cout << *iter << ", ";
-            FIRST_Result[num_Prod][++column] = *iter;
+            FIRST_Result[i][++column] = *iter;
         }
         set_first.clear(); // Clear The Whole FIRST Set of Current Production
         cout << "}\n";
@@ -105,19 +104,19 @@ void fun_first_set()
 
 /*----------------------------------------------------------------------------------------------------*/
 
-void calculate_follow(char start_Symbol)
+void calculate_follow(char prod_LHS)
 {
-    // Case --> Start Symbol
+    // Case --> Current Production LHS is Start Symbol
     // * Result I --> FOLLOW Set += $
-    if (start_Symbol == production[0][0])
+    if (prod_LHS == production[0][0])
         set_follow.insert('$');
 
-    // Check Whole Productions to Find The Match for Current Start Symbol
-    for (int i = 0; i < num_Rules; i++)
+    // Find The Match for Passed In LHS On Current Production's RHS
+    for (int i = 0; i < num_Prod; i++)
     {
         for (int j = 5; j < sizeof(production[i]); j++) // Start With 5th Char
         {
-            if (production[i][j] == start_Symbol)
+            if (production[i][j] == prod_LHS) // When Target Char Appears on Production RHS
             {
                 char next = production[i][j + 1];
                 // Case I --> Production Type: A -> aBc
@@ -146,7 +145,7 @@ void calculate_follow(char start_Symbol)
 
                 // Case II --> Production Type: A -> aB
                 // * Result V --> FOLLOW(B) += FOLLOW(A)
-                else if (start_Symbol != production[i][0])
+                else if (prod_LHS != production[i][0])
                     calculate_follow(production[i][0]);
             }
         }
@@ -157,21 +156,20 @@ void fun_follow_set()
 {
     cout << "FOLLOW Set of Given Grammar Rules\n"
          << endl;
-    for (int num_Prod = 0; num_Prod < num_Rules; num_Prod++)
+    for (int i = 0; i < num_Prod; i++)
     {
-        int flag = 0, column = 0;
-
         // Call Function to Calculate FOLLOW Set of Current Production
-        char start_Symbol = production[num_Prod][0];
-        calculate_follow(start_Symbol);
+        char prod_LHS = production[i][0];
+        calculate_follow(prod_LHS);
 
-        // Display The Final FOLLOW Set Result of Current Grammar Production
-        cout << "FOLLOW(" << start_Symbol << ") = { ";
-        FOLLOW_Result[num_Prod][0] = start_Symbol; // First Character is Start Symbol
+        // Display The Final FOLLOW Set Result of Current Production
+        int column = 0;
+        cout << "FOLLOW(" << prod_LHS << ") = { ";
+        FOLLOW_Result[i][0] = prod_LHS; // First Character is Production LHS
         for (iter = set_follow.begin(); iter != set_follow.end(); iter++)
         {
             cout << *iter << ", ";
-            FOLLOW_Result[num_Prod][++column] = *iter;
+            FOLLOW_Result[i][++column] = *iter;
         }
         set_follow.clear(); // Clear The Whole FOLLOW Set of Current Production
         cout << "}\n";
@@ -189,12 +187,12 @@ void load2array(string textPath)
     tsFile.open(textPath);
     if (tsFile.is_open())
     {
-        while (!tsFile.eof() && num_Rules < MAX_ROWS)
+        while (!tsFile.eof() && num_Prod < MAX_ROWS)
         {
             string line;
             getline(tsFile, line);
             // Copy The Input Grammar to 2-Dimensional Char Array
-            strcpy(production[++num_Rules], line.c_str());
+            strcpy(production[++num_Prod], line.c_str());
         }
     }
     else // File Not Exists or Failed to Load File
@@ -203,7 +201,7 @@ void load2array(string textPath)
         exit(-1);
     }
     tsFile.close();
-    cout << "Grammar Text File Closed Successfully...\n";
+    cout << "Local Production Text File Closed Successfully...\n";
     cout << "\n/*------------------------------------------------------------*/\n"
          << endl;
 }
@@ -214,7 +212,7 @@ void output2file(string OutputPath, char resultSet[][MAX_COLS])
     tsFile.open(OutputPath);
     if (tsFile.is_open())
     {
-        for (int i = 0; i < num_Rules; i++)
+        for (int i = 0; i < num_Prod; i++)
         {
             tsFile << resultSet[i][0] << " -> { ";
             for (int j = 1; j < sizeof(resultSet[i]); j++)
@@ -254,10 +252,10 @@ int main(int argc, char **argv)
     cout << "FIRST & FOLLOW Set Result Directory: " << result_dir << endl
          << endl;
 
-    /*Generate Project Output Results Directory*/
-    string test_set = "/IO_Text/Test_Set_Default.txt"; // Test Set File Path
-    string firSuffix = "/IO_Text/FIRST_Set.txt";       // FIRST Set File Path
-    string flwSuffix = "/IO_Text/FOLLOW_Set.txt";      // FOLLOW Set File Path
+    /*Generate Project Local Files Directory*/
+    string test_set = "/IO_Text/Test_Set_Default.txt";    // Test Set File Path
+    string firSuffix = "/IO_Text/FIRST_Set.txt";  // FIRST Set File Path
+    string flwSuffix = "/IO_Text/FOLLOW_Set.txt"; // FOLLOW Set File Path
     tsPath += test_set;
     firPath += firSuffix;
     flwPath += flwSuffix;
@@ -269,7 +267,7 @@ int main(int argc, char **argv)
     cout << "All Target CFG Grammar Rules Have Been Copied to Local Production Array\n"
          << "Local CFG Grammar Productions As Shown Below\n"
          << endl;
-    for (int i = 0; i < num_Rules; i++)
+    for (int i = 0; i < num_Prod; i++)
         cout << production[i] << endl;
     cout << "\n/*------------------------------------------------------------*/\n"
          << endl;
