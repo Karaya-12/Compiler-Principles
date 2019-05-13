@@ -283,7 +283,7 @@ void output2file(string OutputPath, char resultSet[][MAX_COLS])
     tsFile.open(OutputPath);
     if (tsFile.is_open())
     {
-        for (int i = 0; i < (sizeof(char (*)[20]) / sizeof(resultSet[0])); i++)
+        for (int i = 0; i < (sizeof(char(*)[20]) / sizeof(resultSet[0])); i++)
         {
             tsFile << resultSet[i][0] << " -> { ";
             for (int j = 1; j < sizeof(resultSet[i]); j++)
