@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Set/main.cpp
+set
+-
+cstdio
+-
+cctype
+-
+cstring
+-
+cstdlib
+-
+fstream
+-
+iostream
+-
+unistd.h
+-
+

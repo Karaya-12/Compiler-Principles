@@ -1,0 +1,4 @@
+/home/karaya_12/Program/clion-2019.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Set"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Set/cmake-build-debug
