@@ -1,6 +1,5 @@
 #include <set>
 #include <cstdio>
-#include <cctype>
 #include <cstring>
 #include <cstdlib>
 #include <fstream>
@@ -314,7 +313,7 @@ int main(int argc, char **argv)
     /*Get Current Working Directory*/
     char cwd[256];
     getcwd(cwd, sizeof(cwd)); // Store In String "cwd"
-    string result_dir = cwd, tsPath = cwd, ppPath = cwd, firPath = cwd, flwPath = cwd;
+    string result_dir = cwd, tsPath = cwd, firPath = cwd, flwPath = cwd;
     result_dir += "/IO_Text";
     cout << "Current Working Directory: " << cwd << "\n";
     cout << "FIRST & FOLLOW Set Result Directory: " << result_dir << endl
@@ -322,11 +321,9 @@ int main(int argc, char **argv)
 
     /*Generate Project Local Files Directory*/
     string test_set = "/IO_Text/Test_Set.txt";              // Test Set File Path
-    string prod_set = "/IO_Text/Processed_Productions.txt"; // Processed Productions File Path
     string firSuffix = "/IO_Text/FIRST_Set.txt";            // FIRST Set File Path
     string flwSuffix = "/IO_Text/FOLLOW_Set.txt";           // FOLLOW Set File Path
     tsPath += test_set;
-    ppPath += prod_set;
     firPath += firSuffix;
     flwPath += flwSuffix;
 
