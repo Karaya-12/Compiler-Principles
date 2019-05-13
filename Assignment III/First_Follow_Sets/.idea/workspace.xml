@@ -12,6 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dd8c62-451c-46d9-b2a0-a697cc51a300" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/IO_Text/FIRST_Set.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IO_Text/FIRST_Set.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IO_Text/FOLLOW_Set.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IO_Text/FOLLOW_Set.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -30,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="253" lean-forward="true" selection-start-line="253" selection-end-line="253" />
+            <state relative-caret-position="783">
+              <caret line="291" selection-start-line="291" selection-end-line="291" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -108,17 +110,18 @@
       <workItem from="1555933732203" duration="5000" />
       <workItem from="1555933751600" duration="7000" />
       <workItem from="1557731118052" duration="107000" />
+      <workItem from="1557732980666" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180000" />
+    <option name="totallyTimeSpent" value="194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25963598" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26284796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -149,8 +152,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="253" lean-forward="true" selection-start-line="253" selection-end-line="253" />
+        <state relative-caret-position="783">
+          <caret line="291" selection-start-line="291" selection-end-line="291" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

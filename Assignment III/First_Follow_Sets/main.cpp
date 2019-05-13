@@ -18,6 +18,7 @@ char FOLLOW_Result[MAX_ROWS][MAX_COLS]; // FOLLOW Set Result
 set<char>::iterator iter;
 set<char> set_first;  // Temp FIRST Set for Current Production
 set<char> set_follow; // Temp FOLLOW Set for Current Production
+set<char> set_calc;   // Temp Set for Calculated Produciton LHS
 
 /*                 Assumptions
  * 1. Epsilon Εε is represented by ‘#’
@@ -48,8 +49,8 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
                 if (production[i][j] == '|' || production[i][j] == ' ')
                     continue;
 
-                // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
-                // * Result II --> FIRST Set += ε (#)
+                    // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
+                    // * Result II --> FIRST Set += ε (#)
                 else if (production[i][j] == '#')
                 {
                     set_first.insert('#');
@@ -59,16 +60,16 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
                         calculate_first(production[pre_Prod][pre_Column], pre_Prod, (pre_Column + 1));
                 }
 
-                // Case II --> Production Starts With Terminal (e.g. E -> +TE')
-                // * Result IV --> FIRST Set += Non-Terminal Character
+                    // Case II --> Production Starts With Terminal (e.g. E -> +TE')
+                    // * Result IV --> FIRST Set += Non-Terminal Character
                 else if (!isupper(production[i][j]))
                 {
                     if ((previous == ' ') || (previous == '|'))
                         set_first.insert(production[i][j]);
                 }
 
-                // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
-                // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
+                    // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
+                    // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
                 else if (previous == ' ' || previous == '|')
                     calculate_first(production[i][j], i, (j + 1));
             }
@@ -118,6 +119,7 @@ void calculate_follow(char prod_LHS)
         {
             if (production[i][j] == prod_LHS) // When Target Char Appears on Production RHS
             {
+                set_calc.insert(production[i][j]);
                 char next = production[i][j + 1];
                 // Case I --> Production Type: A -> aBc
                 if (next != '\0' && next != ' ' && next != '\r')
@@ -128,7 +130,10 @@ void calculate_follow(char prod_LHS)
                         // Case I/1 --> FIRST(c) Contains ε
                         // * Result II --> FOLLOW(B) += FOLLOW(A)
                         if (set_first.count('#'))
-                            calculate_follow(production[i][0]);
+                            // If Current Production's LHS Has Been Calculated --> Skip
+                            // * e.g. Given Production: B -> aBc, Calculate FOLLOW(B)
+                            if (!set_calc.count(production[i][0]))
+                                calculate_follow(production[i][0]);
 
                         // * Result III --> FOLLOW(B) += (FIRST(c) - ε)
                         set_first.erase('#');
@@ -137,14 +142,14 @@ void calculate_follow(char prod_LHS)
 
                         set_first.clear();
                     }
-                    // Case I/2 --> c is Non-Terminal
-                    // * Result IV --> FOLLOW(B) += c
+                        // Case I/2 --> c is Non-Terminal
+                        // * Result IV --> FOLLOW(B) += c
                     else
                         set_follow.insert(next);
                 }
 
-                // Case II --> Production Type: A -> aB
-                // * Result V --> FOLLOW(B) += FOLLOW(A)
+                    // Case II --> Production Type: A -> aB
+                    // * Result V --> FOLLOW(B) += FOLLOW(A)
                 else if (prod_LHS != production[i][0])
                     calculate_follow(production[i][0]);
             }
@@ -161,6 +166,7 @@ void fun_follow_set()
         // Call Function to Calculate FOLLOW Set of Current Production
         char prod_LHS = production[i][0];
         calculate_follow(prod_LHS);
+        set_calc.clear(); // Clear Set After Current Iteration
 
         // Display The Final FOLLOW Set Result of Current Production
         int column = 0;
@@ -253,7 +259,7 @@ int main(int argc, char **argv)
          << endl;
 
     /*Generate Project Local Files Directory*/
-    string test_set = "/IO_Text/Test_Set_Default.txt";    // Test Set File Path
+    string test_set = "/IO_Text/Test_Set.txt";    // Test Set File Path
     string firSuffix = "/IO_Text/FIRST_Set.txt";  // FIRST Set File Path
     string flwSuffix = "/IO_Text/FOLLOW_Set.txt"; // FOLLOW Set File Path
     tsPath += test_set;
