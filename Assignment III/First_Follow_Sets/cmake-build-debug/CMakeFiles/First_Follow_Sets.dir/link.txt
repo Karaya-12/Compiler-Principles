@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/First_Follow_Sets.dir/main.cpp.o  -o First_Follow_Sets 

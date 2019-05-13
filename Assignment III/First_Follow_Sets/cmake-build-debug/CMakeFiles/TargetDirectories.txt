@@ -1,3 +1,0 @@
-/home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Sets/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Sets/cmake-build-debug/CMakeFiles/First_Follow_Sets.dir
-/home/karaya_12/Coding/Compiler Principles/Assignment III/First_Follow_Sets/cmake-build-debug/CMakeFiles/edit_cache.dir
