@@ -130,7 +130,7 @@ JetBrain CLion
 
 - Using '#' Instead of 'ε', It Makes Life Easier.
 
-Test Set
+Test Set I
 
 > E -> TM
 > M -> +TM | #
@@ -138,21 +138,48 @@ Test Set
 > N -> *FN | #
 > F -> (E) | a
 
-FIRST Set
+FIRST Set I
 
-> E -> { (, a }
-> M -> { ε, + }
-> T -> { (, a }
-> N -> { ε, * }
-> F -> { (, a }
+> FIRST(E) = { (, a }
+> FIRST(M) = { ε, + }
+> FIRST(T) = { (, a }
+> FIRST(N) = { ε, * }
+> FIRST(F) = { (, a }
 
-FOLLOW Set
+FOLLOW Set I
 
-> E -> { $, ) }
-> M -> { $, ) }
-> T -> { $, ), + }
-> N -> { $, ), + }
-> F -> { $, ), *, + }
+> FOLLOW(E) = { $, ) }
+> FOLLOW(M) = { $, ) }
+> FOLLOW(T) = { $, ), + }
+> FOLLOW(N) = { $, ), + }
+> FOLLOW(F) = { $, ), *, + }
+
+Test Set II
+
+> A -> BCDE
+> B -> aBA | #
+> C -> F | #
+> D -> b | c | #
+> E -> e | #
+> F -> d | #
+
+FIRST Set II
+
+> FIRST(A) = { ε, a, b, c, d, e }
+> FIRST(B) = { ε, a }
+> FIRST(C) = { ε, d }
+> FIRST(D) = { ε, b, c }
+> FIRST(E) = { ε, e }
+> FIRST(F) = { ε, d }
+
+FOLLOW Set II
+
+> FOLLOW(A) = { $, a, b, c, d, e }
+> FOLLOW(B) = { $, a, b, c, d, e }
+> FOLLOW(C) = { $, a, b, c, d, e }
+> FOLLOW(D) = { $, a, b, c, d, e }
+> FOLLOW(E) = { $, a, b, c, d, e }
+> FOLLOW(F) = { $, a, b, c, d, e }
 
 ### 3 Assumptions
 
@@ -163,9 +190,9 @@ Reasonable Assumptions Make Life Easier ~~~
 3. *Each production of a non terminal is entered on a different line*
 4. *Only Upper Case letters are Non-Terminals, thus everything else is a terminal*
 
-### 4 Known Issues
+### 4 Previous Issues & Current Solutions
 
-1. Currently Only Support Seperated Productions
+1. Currently Only Support Split Productions
    ```
    A -> aAb or A -> aAb | ε
    ```
@@ -179,8 +206,12 @@ Reasonable Assumptions Make Life Easier ~~~
    A -> cBd
    A -> ε
    ```
+   
+   * Solution - Split Function Added Before Running The Actual FIRST & FOLLOW Set Function.
+   
 2. Currently Only Support Limited CFG Grammar Rule Types
    e.g. Following Grammar Not Supported
+
    ```
    A -> BCDE
    B -> aBA | #
@@ -189,6 +220,8 @@ Reasonable Assumptions Make Life Easier ~~~
    E -> e | #
    F -> d | #
    ```
+
+   * Solution - A C++ STL Set Has Been Added to Stop Infinite Loop In FOLLOW Set Calculation Procedure.
 
 ## Assignment IV
 

@@ -10,10 +10,12 @@
 #define MAX_COLS 20
 using namespace std;
 
-int num_Prod = -1;                      // Production Rule Counter
-char production[MAX_ROWS][MAX_COLS];    // Production Rules
-char FIRST_Result[MAX_ROWS][MAX_COLS];  // FIRST Set Result
-char FOLLOW_Result[MAX_ROWS][MAX_COLS]; // FOLLOW Set Result
+int raw_Line = 0;                        // Raw Production Line Counter
+int prod_Line = 0;                       // Processed Production Line Counter
+char production[MAX_ROWS][MAX_COLS];     // Processed Productions
+char raw_production[MAX_ROWS][MAX_COLS]; // Raw Productions
+char FIRST_Result[MAX_ROWS][MAX_COLS];   // FIRST Set Result
+char FOLLOW_Result[MAX_ROWS][MAX_COLS];  // FOLLOW Set Result
 
 set<char>::iterator iter;
 set<char> set_first;  // Temp FIRST Set for Current Production
@@ -30,7 +32,7 @@ set<char> set_calc;   // Temp Set for Calculated Produciton LHS
 void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
 {
     // Find The Match for Current Production's LHS
-    for (int i = 0; i < num_Prod; i++)
+    for (int i = 0; i < prod_Line; i++)
     {
         if (production[i][0] == prod_LHS)
         {
@@ -81,23 +83,26 @@ void fun_first_set()
 {
     cout << "FIRST Set of Given Grammar Rules\n"
          << endl;
-    for (int i = 0; i < num_Prod; i++)
+    for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FIRST Set of Current Production
         char prod_LHS = production[i][0];
         calculate_first(prod_LHS, 0, 0);
 
         // Display The Final FIRST Set Result of Current Production
-        int column = 0;
-        cout << "FIRST(" << prod_LHS << ") = { ";
-        FIRST_Result[i][0] = prod_LHS; // First Character is LHS
-        for (iter = set_first.begin(); iter != set_first.end(); iter++)
+        if (production[i + 1][0] != prod_LHS)
         {
-            cout << *iter << ", ";
-            FIRST_Result[i][++column] = *iter;
+            int line = 0, column = 0;
+            cout << "FIRST(" << prod_LHS << ") = { ";
+            FIRST_Result[i][0] = prod_LHS; // First Character is LHS
+            for (iter = set_first.begin(); iter != set_first.end(); iter++)
+            {
+                cout << *iter << ", ";
+                FIRST_Result[i][++column] = *iter;
+            }
+            set_first.clear(); // Clear The Whole FIRST Set of Current Production
+            cout << "}\n";
         }
-        set_first.clear(); // Clear The Whole FIRST Set of Current Production
-        cout << "}\n";
     }
     cout << "\n/*------------------------------------------------------------*/\n"
          << endl;
@@ -113,7 +118,7 @@ void calculate_follow(char prod_LHS)
         set_follow.insert('$');
 
     // Find The Match for Passed In LHS On Current Production's RHS
-    for (int i = 0; i < num_Prod; i++)
+    for (int i = 0; i < prod_Line; i++)
     {
         for (int j = 5; j < sizeof(production[i]); j++) // Start With 5th Char
         {
@@ -161,25 +166,79 @@ void fun_follow_set()
 {
     cout << "FOLLOW Set of Given Grammar Rules\n"
          << endl;
-    for (int i = 0; i < num_Prod; i++)
+    for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FOLLOW Set of Current Production
         char prod_LHS = production[i][0];
         calculate_follow(prod_LHS);
-        set_calc.clear(); // Clear Set After Current Iteration
 
         // Display The Final FOLLOW Set Result of Current Production
-        int column = 0;
-        cout << "FOLLOW(" << prod_LHS << ") = { ";
-        FOLLOW_Result[i][0] = prod_LHS; // First Character is Production LHS
-        for (iter = set_follow.begin(); iter != set_follow.end(); iter++)
+        if (production[i + 1][0] != prod_LHS)
         {
-            cout << *iter << ", ";
-            FOLLOW_Result[i][++column] = *iter;
+            set_calc.clear(); // Clear Set After Current LHS Iteration
+            int column = 0;
+            cout << "FOLLOW(" << prod_LHS << ") = { ";
+            FOLLOW_Result[i][0] = prod_LHS; // First Character is Production LHS
+            for (iter = set_follow.begin(); iter != set_follow.end(); iter++)
+            {
+                cout << *iter << ", ";
+                FOLLOW_Result[i][++column] = *iter;
+            }
+            set_follow.clear(); // Clear The Whole FOLLOW Set of Current Production
+            cout << "}\n";
         }
-        set_follow.clear(); // Clear The Whole FOLLOW Set of Current Production
-        cout << "}\n";
     }
+    cout << "\n/*------------------------------------------------------------*/\n"
+         << endl;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+void production_preprocess()
+{
+    // Split Raw Productions, e.g. D -> b | c | # --> D -> b, D -> c, D -> #
+    for (int i = 0; i < raw_Line; i++, prod_Line++)
+    {
+        int prod_Column = 0;
+        for (int j = 0; j < sizeof(raw_production[i]); j++)
+        {
+            if (raw_production[i][j] != '\0' && raw_production[i][j] != '\r')
+            {
+                if (raw_production[i][j] == '|')
+                {
+                    prod_Line++; // Start A New Line
+                    j += 2;      // Skip The '|' Mark & The Follow Up Whitespace
+                    int k = 0;
+                    for (; k < 5; k++) // Generate The Header of Current Production
+                        production[prod_Line][k] = raw_production[i][k];
+                    // Add The RHS Characters After Current '|' Mark Till The End or Next '|' Mark
+                    while (raw_production[i][j + 1] != '\0')
+                    {
+                        if (raw_production[i][j + 1] == '|')
+                            break;
+                        production[prod_Line][k++] = raw_production[i][j++];
+                    }
+                }
+                else if (raw_production[i][j + 1] != '|')
+                    production[prod_Line][prod_Column++] = raw_production[i][j];
+            }
+        }
+    }
+}
+
+void display_productions()
+{
+    cout << "Local CFG Grammar Productions As Shown Below\n"
+         << endl;
+    for (int i = 0; i < raw_Line; i++)
+        cout << raw_production[i] << "\n";
+    cout << "\n/*------------------------------------------------------------*/\n"
+         << endl;
+
+    cout << "Processed Program Embedded Productions As Shown Below\n"
+         << endl;
+    for (int i = 0; i < prod_Line; i++)
+        cout << production[i] << "\n";
     cout << "\n/*------------------------------------------------------------*/\n"
          << endl;
 }
@@ -193,19 +252,22 @@ void load2array(string textPath)
     tsFile.open(textPath);
     if (tsFile.is_open())
     {
-        while (!tsFile.eof() && num_Prod < MAX_ROWS)
+        while (!tsFile.eof() && raw_Line < MAX_ROWS)
         {
             string line;
             getline(tsFile, line);
             // Copy The Input Grammar to 2-Dimensional Char Array
-            strcpy(production[++num_Prod], line.c_str());
+            strcpy(raw_production[raw_Line++], line.c_str());
         }
+        raw_Line--;
     }
     else // File Not Exists or Failed to Load File
     {
         cerr << "Unable to Open The File...\n";
         exit(-1);
     }
+    cout << "All Target CFG Grammar Rules Have Been Copied to Local Production Array\n"
+         << endl;
     tsFile.close();
     cout << "Local Production Text File Closed Successfully...\n";
     cout << "\n/*------------------------------------------------------------*/\n"
@@ -218,7 +280,7 @@ void output2file(string OutputPath, char resultSet[][MAX_COLS])
     tsFile.open(OutputPath);
     if (tsFile.is_open())
     {
-        for (int i = 0; i < num_Prod; i++)
+        for (int i = 0; i < prod_Line; i++)
         {
             tsFile << resultSet[i][0] << " -> { ";
             for (int j = 1; j < sizeof(resultSet[i]); j++)
@@ -252,31 +314,28 @@ int main(int argc, char **argv)
     /*Get Current Working Directory*/
     char cwd[256];
     getcwd(cwd, sizeof(cwd)); // Store In String "cwd"
-    string result_dir = cwd, tsPath = cwd, firPath = cwd, flwPath = cwd;
+    string result_dir = cwd, tsPath = cwd, ppPath = cwd, firPath = cwd, flwPath = cwd;
     result_dir += "/IO_Text";
     cout << "Current Working Directory: " << cwd << "\n";
     cout << "FIRST & FOLLOW Set Result Directory: " << result_dir << endl
          << endl;
 
     /*Generate Project Local Files Directory*/
-    string test_set = "/IO_Text/Test_Set.txt";    // Test Set File Path
-    string firSuffix = "/IO_Text/FIRST_Set.txt";  // FIRST Set File Path
-    string flwSuffix = "/IO_Text/FOLLOW_Set.txt"; // FOLLOW Set File Path
+    string test_set = "/IO_Text/Test_Set.txt";              // Test Set File Path
+    string prod_set = "/IO_Text/Processed_Productions.txt"; // Processed Productions File Path
+    string firSuffix = "/IO_Text/FIRST_Set.txt";            // FIRST Set File Path
+    string flwSuffix = "/IO_Text/FOLLOW_Set.txt";           // FOLLOW Set File Path
     tsPath += test_set;
+    ppPath += prod_set;
     firPath += firSuffix;
     flwPath += flwSuffix;
 
-    /*Load Local CFG Grammar Rules Into Production Arrays*/
+    /*Load Local CFG Grammar Into Production Arrays & Preprocess Given Productions*/
     load2array(tsPath);
+    production_preprocess(); // Split Given Productions
 
     /*Display Loaded CFG Grammar Productions*/
-    cout << "All Target CFG Grammar Rules Have Been Copied to Local Production Array\n"
-         << "Local CFG Grammar Productions As Shown Below\n"
-         << endl;
-    for (int i = 0; i < num_Prod; i++)
-        cout << production[i] << endl;
-    cout << "\n/*------------------------------------------------------------*/\n"
-         << endl;
+    display_productions();
 
     /*Calculate The FIRST & FOLLOW Sets of Given Grammar Rules*/
     /*Part I --> Calculate FIRST Set for Each Production*/
