@@ -50,8 +50,8 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
                 if (production[i][j] == '|' || production[i][j] == ' ')
                     continue;
 
-                    // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
-                    // * Result II --> FIRST Set += ε (#)
+                // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
+                // * Result II --> FIRST Set += ε (#)
                 else if (production[i][j] == '#')
                 {
                     set_first.insert('#');
@@ -61,16 +61,16 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column)
                         calculate_first(production[pre_Prod][pre_Column], pre_Prod, (pre_Column + 1));
                 }
 
-                    // Case II --> Production Starts With Terminal (e.g. E -> +TE')
-                    // * Result IV --> FIRST Set += Non-Terminal Character
+                // Case II --> Production Starts With Terminal (e.g. E -> +TE')
+                // * Result IV --> FIRST Set += Non-Terminal Character
                 else if (!isupper(production[i][j]))
                 {
                     if ((previous == ' ') || (previous == '|'))
                         set_first.insert(production[i][j]);
                 }
 
-                    // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
-                    // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
+                // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
+                // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
                 else if (previous == ' ' || previous == '|')
                     calculate_first(production[i][j], i, (j + 1));
             }
@@ -82,6 +82,7 @@ void fun_first_set()
 {
     cout << "FIRST Set of Given Grammar Rules\n"
          << endl;
+    int line = 0;
     for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FIRST Set of Current Production
@@ -89,18 +90,19 @@ void fun_first_set()
         calculate_first(prod_LHS, 0, 0);
 
         // Display The Final FIRST Set Result of Current Production
+        int column = 0;
         if (production[i + 1][0] != prod_LHS)
         {
-            int line = 0, column = 0;
             cout << "FIRST(" << prod_LHS << ") = { ";
-            FIRST_Result[i][0] = prod_LHS; // First Character is LHS
+            FIRST_Result[line][0] = prod_LHS; // First Character is LHS
             for (iter = set_first.begin(); iter != set_first.end(); iter++)
             {
                 cout << *iter << ", ";
-                FIRST_Result[i][++column] = *iter;
+                FIRST_Result[line][++column] = *iter;
             }
             set_first.clear(); // Clear The Whole FIRST Set of Current Production
             cout << "}\n";
+            line++;
         }
     }
     cout << "\n/*------------------------------------------------------------*/\n"
@@ -146,14 +148,14 @@ void calculate_follow(char prod_LHS)
 
                         set_first.clear();
                     }
-                        // Case I/2 --> c is Non-Terminal
-                        // * Result IV --> FOLLOW(B) += c
+                    // Case I/2 --> c is Non-Terminal
+                    // * Result IV --> FOLLOW(B) += c
                     else
                         set_follow.insert(next);
                 }
 
-                    // Case II --> Production Type: A -> aB
-                    // * Result V --> FOLLOW(B) += FOLLOW(A)
+                // Case II --> Production Type: A -> aB
+                // * Result V --> FOLLOW(B) += FOLLOW(A)
                 else if (prod_LHS != production[i][0])
                     calculate_follow(production[i][0]);
             }
@@ -165,6 +167,7 @@ void fun_follow_set()
 {
     cout << "FOLLOW Set of Given Grammar Rules\n"
          << endl;
+    int line = 0;
     for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FOLLOW Set of Current Production
@@ -172,19 +175,20 @@ void fun_follow_set()
         calculate_follow(prod_LHS);
 
         // Display The Final FOLLOW Set Result of Current Production
+        int column = 0;
         if (production[i + 1][0] != prod_LHS)
         {
             set_calc.clear(); // Clear Set After Current LHS Iteration
-            int column = 0;
             cout << "FOLLOW(" << prod_LHS << ") = { ";
-            FOLLOW_Result[i][0] = prod_LHS; // First Character is Production LHS
+            FOLLOW_Result[line][0] = prod_LHS; // First Character is Production LHS
             for (iter = set_follow.begin(); iter != set_follow.end(); iter++)
             {
                 cout << *iter << ", ";
-                FOLLOW_Result[i][++column] = *iter;
+                FOLLOW_Result[line][++column] = *iter;
             }
             set_follow.clear(); // Clear The Whole FOLLOW Set of Current Production
             cout << "}\n";
+            line++;
         }
     }
     cout << "\n/*------------------------------------------------------------*/\n"
@@ -279,7 +283,7 @@ void output2file(string OutputPath, char resultSet[][MAX_COLS])
     tsFile.open(OutputPath);
     if (tsFile.is_open())
     {
-        for (int i = 0; i < prod_Line; i++)
+        for (int i = 0; i < (sizeof(char (*)[20]) / sizeof(resultSet[0])); i++)
         {
             tsFile << resultSet[i][0] << " -> { ";
             for (int j = 1; j < sizeof(resultSet[i]); j++)
@@ -320,9 +324,9 @@ int main(int argc, char **argv)
          << endl;
 
     /*Generate Project Local Files Directory*/
-    string test_set = "/IO_Text/Test_Set.txt";              // Test Set File Path
-    string firSuffix = "/IO_Text/FIRST_Set.txt";            // FIRST Set File Path
-    string flwSuffix = "/IO_Text/FOLLOW_Set.txt";           // FOLLOW Set File Path
+    string test_set = "/IO_Text/Test_Set.txt";    // Test Set File Path
+    string firSuffix = "/IO_Text/FIRST_Set.txt";  // FIRST Set File Path
+    string flwSuffix = "/IO_Text/FOLLOW_Set.txt"; // FOLLOW Set File Path
     tsPath += test_set;
     firPath += firSuffix;
     flwPath += flwSuffix;
