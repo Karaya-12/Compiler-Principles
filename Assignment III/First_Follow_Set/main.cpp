@@ -82,7 +82,7 @@ void fun_first_set()
 {
     cout << "FIRST Set of Given Grammar Rules\n"
          << endl;
-    int line = 0;
+    int row = 0;
     for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FIRST Set of Current Production
@@ -94,15 +94,15 @@ void fun_first_set()
         if (production[i + 1][0] != prod_LHS)
         {
             cout << "FIRST(" << prod_LHS << ") = { ";
-            FIRST_Result[line][0] = prod_LHS; // First Character is LHS
+            FIRST_Result[row][0] = prod_LHS; // First Character is LHS
             for (iter = set_first.begin(); iter != set_first.end(); iter++)
             {
                 cout << *iter << ", ";
-                FIRST_Result[line][++column] = *iter;
+                FIRST_Result[row][++column] = *iter;
             }
             set_first.clear(); // Clear The Whole FIRST Set of Current Production
             cout << "}\n";
-            line++;
+            row++;
         }
     }
     cout << "\n/*------------------------------------------------------------*/\n"
@@ -167,7 +167,7 @@ void fun_follow_set()
 {
     cout << "FOLLOW Set of Given Grammar Rules\n"
          << endl;
-    int line = 0;
+    int row = 0;
     for (int i = 0; i < prod_Line; i++)
     {
         // Call Function to Calculate FOLLOW Set of Current Production
@@ -180,15 +180,15 @@ void fun_follow_set()
         {
             set_calc.clear(); // Clear Set After Current LHS Iteration
             cout << "FOLLOW(" << prod_LHS << ") = { ";
-            FOLLOW_Result[line][0] = prod_LHS; // First Character is Production LHS
+            FOLLOW_Result[row][0] = prod_LHS; // First Character is Production LHS
             for (iter = set_follow.begin(); iter != set_follow.end(); iter++)
             {
                 cout << *iter << ", ";
-                FOLLOW_Result[line][++column] = *iter;
+                FOLLOW_Result[row][++column] = *iter;
             }
             set_follow.clear(); // Clear The Whole FOLLOW Set of Current Production
             cout << "}\n";
-            line++;
+            row++;
         }
     }
     cout << "\n/*------------------------------------------------------------*/\n"
