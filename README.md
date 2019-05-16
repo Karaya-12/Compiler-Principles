@@ -187,8 +187,7 @@ Reasonable Assumptions Make Life Easier ~~~
 
 1. *Epsilon ε is represented by ‘#’*
 2. *Grammar is not left recursive*
-3. *Each production of a non terminal is entered on a different line*
-4. *Only Upper Case letters are Non-Terminals, thus everything else is a terminal*
+3. *Only upper case letters are Non-Terminals(NT), thus everything else is a Terminal(T)*
 
 ### 4 Previous Issues & Current Solutions
 
@@ -225,10 +224,78 @@ Reasonable Assumptions Make Life Easier ~~~
 
 ## Assignment IV
 
+### 1 Programming Language & IDE
+
+C++17
+
+JetBrain CLion
+
+- Be Sure to Set Your CWD (Current Working Directory) to Your Project Root Directory
+
+### 2 Assignment Briefing
+
+1. Generate LL(1) Grammar Parsing Table Based On Previous FIRST & FOLLOW Set Result
+2. Top-Down Non-Recursive Predictive Parsing
+3. Top-Down Recursive Descent Parsing
+
+#### * Example
+
+Test Set
+
+> E -> TM
+> M -> +TM | #
+> T -> FN
+> N -> *FN | #
+> F -> (E) | a
+
+FIRST Set
+
+> FIRST(E) = { (, a }
+> FIRST(M) = { ε, + }
+> FIRST(T) = { (, a }
+> FIRST(N) = { ε, * }
+> FIRST(F) = { (, a }
+
+FOLLOW Set
+
+> FOLLOW(E) = { $, ) }
+> FOLLOW(M) = { $, ) }
+> FOLLOW(T) = { $, ), + }
+> FOLLOW(N) = { $, ), + }
+> FOLLOW(F) = { $, ), *, + }
+
+Parsing Table
+
+* Number Presents The Production Which Generates The Corresponding FIRST Set
+
+>   $ ( ) * + a
+> E / 0 / / / 0 
+> M # / # / 1 / 
+> T / 3 / / / 3 
+> N # / # 4 # / 
+> F / 6 / / / 7 
+
+Custom Input
+
+> a+a*a$
+> aa*a$
+> a**a$
+> (a+a$
+
+Final LL(1) Grammar Parsing Result
+
+> E -> TM
+> T -> FN
+> F -> a
+> N -> #
+> M -> +TM
+> T -> FN
+> F -> a
+> N -> *FN
+> F -> a
+> N -> #
+> M -> #
+
 ## Assignment V
 
 ## Assignment VI
-
-## Assignment VII
-
-## Assignment VIII

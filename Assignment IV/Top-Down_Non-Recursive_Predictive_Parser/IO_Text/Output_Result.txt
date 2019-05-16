@@ -1,0 +1,11 @@
+E -> TM
+T -> FN
+F -> a
+N -> #
+M -> +TM
+T -> FN
+F -> a
+N -> *FN
+F -> a
+N -> #
+M -> #
