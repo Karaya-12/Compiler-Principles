@@ -1,0 +1,9 @@
+#ifndef TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_PROC_PRODUCTION_H
+#define TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_PROC_PRODUCTION_H
+
+#include "global.h"
+
+void production_preprocess();
+void display_productions();
+
+#endif //TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_PROC_PRODUCTION_H

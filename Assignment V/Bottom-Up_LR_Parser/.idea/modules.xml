@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Test.iml" filepath="$PROJECT_DIR$/.idea/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bottom-Up_LR_Parser.iml" filepath="$PROJECT_DIR$/.idea/Bottom-Up_LR_Parser.iml" />
     </modules>
   </component>
 </project>

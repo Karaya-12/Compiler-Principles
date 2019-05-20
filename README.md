@@ -298,4 +298,40 @@ Final LL(1) Grammar Parsing Result
 
 ## Assignment V
 
+### 1 Programming Language & IDE
+
+C++17
+
+JetBrain CLion
+
+- Be Sure to Set Your CWD (Current Working Directory) to Your Project Root Directory
+
+### 2 Assignment Briefing
+
+1. Generate LR/SLR Grammar Parsing Table Based On Grammar Closure & FOLLOW Set Result
+2. Bottom-Up LR Shift / Reduce Parsing
+
+#### * Example
+
+Test Set
+
+> E -> E+T | T
+> T -> T*F | F
+> F -> (E) | a
+
+FOLLOW Set
+
+> FOLLOW(E) = { $, ), + }
+> FOLLOW(T) = { $, ), *, + }
+> FOLLOW(F) = { $, ), *, + }
+
+Custom Input
+
+> a*a+a$ --> No Error
+> a*+a+a$ --> '+' Will be Discarded
+
+Parsing Table, Final Result & Detailed LR Parsing Principles
+
+> Be Sure to Check Out This PDF - http://www.cse.aucegypt.edu/~rafea/CSCE447/slides/LR%20ParsingNEW.pdf
+
 ## Assignment VI

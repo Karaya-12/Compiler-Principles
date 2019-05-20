@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Bottom_Up_LR_Parser"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Bottom_Up_LR_Parser">
+				<Option output="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug/Bottom_Up_LR_Parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 Bottom_Up_LR_Parser"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Bottom_Up_LR_Parser/fast">
+				<Option output="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug/Bottom_Up_LR_Parser" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 Bottom_Up_LR_Parser/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/karaya_12/Coding/Compiler\ Principles/Assignment\ V/Bottom-Up_LR_Parser/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_first.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_first.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_follow.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_follow.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/file_IO.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/file_IO.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/global.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/main.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/proc_production.cpp">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/proc_production.h">
+			<Option target="Bottom_Up_LR_Parser"/>
+		</Unit>
+		<Unit filename="/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
