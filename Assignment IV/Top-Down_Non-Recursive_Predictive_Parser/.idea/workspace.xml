@@ -12,11 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90e074e3-a3f8-43e0-999c-9f33424ceb5c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Top-Down_Non-Recursive_Predictive_Parser.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment V/Test/.idea/Test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment V/Test/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment V/Test/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment V/Test/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/non_recursive_parser.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/non_recursive_parser.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,6 +96,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Assignment V/Bottom-Up_LR_Parser" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -135,17 +136,17 @@
       <workItem from="1557979638214" duration="9000" />
       <workItem from="1557988607117" duration="98000" />
       <workItem from="1557988717744" duration="6000" />
+      <workItem from="1558361330550" duration="65000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1048000" />
+    <option name="totallyTimeSpent" value="1113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1895075" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19164883" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />

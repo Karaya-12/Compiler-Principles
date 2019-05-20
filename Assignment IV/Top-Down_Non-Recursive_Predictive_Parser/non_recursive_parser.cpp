@@ -35,7 +35,6 @@ void non_recursive_parse()
         for (int j = 0; j < sizeof(inputText[i]); j++)
             if (inputText[i][j] != '\0' && inputText[i][j] != '\r')
                 inputLine.push(inputText[i][j]);
-        cout << "Current Processing User Input Line - ";
         printQueue(inputLine);
 
         // Push '$' & The Starting Non-Terminal Symbol Into Parser Stack
@@ -63,8 +62,8 @@ void non_recursive_parse()
                 sta_parser.pop();
                 inputLine.pop();
             }
-                // Case II --> Stack Top is Terminal But Doesn't Match Up to The Input Queue Front
-                // * Action II --> Report Error & Discard Current Character
+            // Case II --> Stack Top is Terminal But Doesn't Match Up to The Input Queue Front
+            // * Action II --> Report Error & Discard Current Character
             else if (!isupper(sta_parser.top()))
             {
                 errorLog = "Error: Expected Non-Terminal In Stack But Found Terminal - '" + string(1, sta_parser.top()) + "'";
@@ -72,8 +71,8 @@ void non_recursive_parse()
                 cerr << errorLog << endl;
                 sta_parser.pop();
             }
-                // Case III --> Stack Top is Non-Terminal
-                // * Action III --> Pop Stack Top Element & Add Corresponding Production RHS to The Stack In Reverse Order
+            // Case III --> Stack Top is Non-Terminal
+            // * Action III --> Pop Stack Top Element & Add Corresponding Production RHS to The Stack In Reverse Order
             else if (pt_target != '/') // Find A Match In Parsing Table
             {
                 // Generate The Full Correponding Production

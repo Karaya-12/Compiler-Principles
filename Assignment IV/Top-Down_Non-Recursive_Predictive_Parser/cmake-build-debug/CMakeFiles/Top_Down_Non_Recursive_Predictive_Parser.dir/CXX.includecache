@@ -6,46 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.cpp
-cal_first.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.h
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
-generate_pt.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/generate_pt.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_follow.cpp
-cal_follow.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_follow.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_follow.h
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
-cal_first.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/file_IO.cpp
-file_IO.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/file_IO.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/file_IO.h
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
-fstream
--
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/generate_pt.cpp
-generate_pt.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/generate_pt.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/generate_pt.h
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
-cal_first.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.h
-
 /home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
 set
 -
@@ -62,24 +22,6 @@ cstdlib
 iostream
 -
 
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/main.cpp
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
-file_IO.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/file_IO.h
-proc_production.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/proc_production.h
-cal_first.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_first.h
-cal_follow.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/cal_follow.h
-generate_pt.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/generate_pt.h
-non_recursive_parser.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/non_recursive_parser.h
-unistd.h
--
-
 /home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/non_recursive_parser.cpp
 non_recursive_parser.h
 /home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/non_recursive_parser.h
@@ -89,12 +31,4 @@ global.h
 /home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
 vector
 -
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/proc_production.cpp
-proc_production.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/proc_production.h
-
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/proc_production.h
-global.h
-/home/karaya_12/Coding/Compiler Principles/Assignment IV/Top-Down_Non-Recursive_Predictive_Parser/global.h
 
