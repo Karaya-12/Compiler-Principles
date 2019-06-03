@@ -1,0 +1,94 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/bottom_up_lr_parser.cpp
+bottom_up_lr_parser.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/bottom_up_lr_parser.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/bottom_up_lr_parser.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+generate_LR_pt.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/generate_LR_pt.h
+semantic_rules.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/semantic_rules.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/cal_first.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/cal_follow.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+cal_first.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/cal_first.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/file_IO.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+fstream
+-
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/generate_LR_pt.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+set
+-
+stack
+-
+queue
+-
+cstdio
+-
+cstring
+-
+cstdlib
+-
+iostream
+-
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/main.cpp
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+file_IO.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/file_IO.h
+proc_production.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/proc_production.h
+cal_first.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/cal_first.h
+cal_follow.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/cal_follow.h
+proc_input.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/proc_input.h
+generate_LR_pt.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/generate_LR_pt.h
+bottom_up_lr_parser.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/bottom_up_lr_parser.h
+unistd.h
+-
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/proc_input.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/proc_production.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/semantic_rules.cpp
+semantic_rules.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/semantic_rules.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/semantic_rules.h
+global.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/global.h
+bottom_up_lr_parser.h
+/home/karaya_12/Coding/Compiler Principles/Assignment VI/LR_Semantic_Analysis/bottom_up_lr_parser.h
+
