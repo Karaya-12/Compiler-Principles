@@ -55,7 +55,7 @@ int main(int argc, char **argv)
 
     /*Calculate FOLLOW Set Based On Each Production*/
     fun_follow_set();
-    output2file(flwPath, FOLLOW_Result);
+    output2file(flwPath);
 
     load2array(inputPath, false); // Custom Input Text
     input_Line--;

@@ -1,7 +1,5 @@
 #include "file_IO.h"
 
-vector<string> parsingResult; // Final Parsing Result
-
 void load2array(const string &textPath, bool isProduction = true)
 {
     /*Load Local Test Grammar Into Production Rules*/
@@ -30,29 +28,31 @@ void load2array(const string &textPath, bool isProduction = true)
          << endl;
 }
 
-void output2file(const string &OutputPath, char resultSet[][MAX_COLS]) // FIRST & FOLLOW Set Result
+void output2file(const string &OutputPath) // FOLLOW Set Result
 {
     ofstream(tsFile);
     tsFile.open(OutputPath);
     if (tsFile.is_open())
     {
-        for (int i = 0; i < (sizeof(char(*)[20]) / sizeof(resultSet[0])); i++)
+        int i = 0;
+        do
         {
-            tsFile << resultSet[i][0] << " -> { ";
-            for (int j = 1; j < sizeof(resultSet[i]); j++)
+            tsFile << FOLLOW_Result[i][0] << " -> { ";
+            for (int j = 1; j < sizeof(FOLLOW_Result[i]); j++)
             {
-                if (resultSet[i][j] == '#')
+                if (FOLLOW_Result[i][j] == '#')
                     tsFile << "\u03B5, "; // Unicode Escape Characters of ε
-                else if (resultSet[i][j] != '\0')
+                else if (FOLLOW_Result[i][j] != '\0')
                 {
-                    if (resultSet[i][j + 1] == '\0')
-                        tsFile << resultSet[i][j] << " }";
+                    if (FOLLOW_Result[i][j + 1] == '\0')
+                        tsFile << FOLLOW_Result[i][j] << " }";
                     else
-                        tsFile << resultSet[i][j] << ", ";
+                        tsFile << FOLLOW_Result[i][j] << ", ";
                 }
             }
             tsFile << endl;
-        }
+            i++;
+        } while (FOLLOW_Result[i][0] != '\0');
     }
     else // File Not Exists or Failed to Write File
     {
@@ -60,7 +60,7 @@ void output2file(const string &OutputPath, char resultSet[][MAX_COLS]) // FIRST 
         exit(-1);
     }
     tsFile.close();
-    cout << "Set Result File Closed Successfully...\n";
+    cout << "FOLLOW Set Result File Closed Successfully...\n";
     cout << "\n/*------------------------------------------------------------*/\n"
          << endl;
 }
