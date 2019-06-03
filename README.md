@@ -311,6 +311,8 @@ JetBrain CLion
 1. Generate LR/SLR Grammar Parsing Table Based On Grammar Closure & FOLLOW Set Result
 2. Bottom-Up LR Shift / Reduce Parsing
 
+* Using Embedded LR Parsing Table
+
 #### * Example
 
 Test Set
@@ -335,3 +337,40 @@ Parsing Table, Final Result & Detailed LR Parsing Principles
 > Be Sure to Check Out This PDF - http://www.cse.aucegypt.edu/~rafea/CSCE447/slides/LR%20ParsingNEW.pdf
 
 ## Assignment VI
+
+### 1 Programming Language & IDE
+
+C++17
+
+JetBrain CLion
+
+- Be Sure to Set Your CWD (Current Working Directory) to Your Project Root Directory
+
+### 2 Assignment Briefing
+
+1. Semantic Analysis Based On Previous LR Parser
+2. Be Sure to Check Out How Semantic Rules & Actions Work First
+
+* Using Embedded LR Parsing Table & Semantic Rules, Actions
+
+#### * Example
+
+Test Set
+
+> E -> E+T | T
+> T -> T*F | F
+> F -> (E) | a
+
+FOLLOW Set
+
+> FOLLOW(E) = { $, ), + }
+> FOLLOW(T) = { $, ), *, + }
+> FOLLOW(F) = { $, ), *, + }
+
+Custom Input
+
+> 5+3+8x2$
+
+Result
+
+> 24.0000 (float Value)
