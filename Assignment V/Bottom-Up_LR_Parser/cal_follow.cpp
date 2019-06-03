@@ -40,14 +40,14 @@ void calculate_follow(char prod_LHS)
 
                         set_first.clear();
                     }
-                        // Case I/2 --> c is Non-Terminal
-                        // * Result IV --> FOLLOW(B) += c
+                    // Case I/2 --> c is Non-Terminal
+                    // * Result IV --> FOLLOW(B) += c
                     else
                         set_follow.insert(next);
                 }
 
-                    // Case II --> Production Type: A -> aB
-                    // * Result V --> FOLLOW(B) += FOLLOW(A)
+                // Case II --> Production Type: A -> aB
+                // * Result V --> FOLLOW(B) += FOLLOW(A)
                 else if (prod_LHS != production[i][0])
                     calculate_follow(production[i][0]);
             }

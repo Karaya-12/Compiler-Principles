@@ -1,5 +1,5 @@
-#ifndef TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GENERATE_LR_PT_H
-#define TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GENERATE_LR_PT_H
+#ifndef BOTTOM_UP_LR_PARSER_GENERATE_LR_PT_H
+#define BOTTOM_UP_LR_PARSER_GENERATE_LR_PT_H
 
 #include "global.h"
 #define pt_Col 12
@@ -16,4 +16,4 @@ extern string pt_goto[pt_Col][goto_Col];
 void generate_LR_pt();
 void display_LR_pt();
 
-#endif //TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GENERATE_LR_PT_H
+#endif //BOTTOM_UP_LR_PARSER_GENERATE_LR_PT_H

@@ -30,8 +30,8 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column, int root_Row, 
                 if (production[i][j] == '|' || production[i][j] == ' ')
                     continue;
 
-                    // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
-                    // * Result II --> FIRST Set += ε (#)
+                // Case I --> Production Contains ε (#) (e.g. X -> aB | ε)
+                // * Result II --> FIRST Set += ε (#)
                 else if (production[i][j] == '#')
                 {
                     set_first.insert('#');
@@ -41,16 +41,16 @@ void calculate_first(char prod_LHS, int pre_Prod, int pre_Column, int root_Row, 
                         calculate_first(production[pre_Prod][pre_Column], pre_Prod, (pre_Column + 1), -1, false);
                 }
 
-                    // Case II --> Production Starts With Terminal (e.g. E -> +TE')
-                    // * Result IV --> FIRST Set += Non-Terminal Character
+                // Case II --> Production Starts With Terminal (e.g. E -> +TE')
+                // * Result IV --> FIRST Set += Non-Terminal Character
                 else if (!isupper(production[i][j]))
                 {
                     if ((previous == ' ') || (previous == '|'))
                         set_first.insert(production[i][j]);
                 }
 
-                    // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
-                    // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
+                // Case III --> Production Starts With Non-Terminal (e.g. X -> Y)
+                // * Result V --> FIRST Set += FIRST(Y1Y2..Yk), Stop by The First Set Which doesn't Contain ε
                 else if (previous == ' ' || previous == '|')
                     calculate_first(production[i][j], i, (j + 1), -1, false);
             }

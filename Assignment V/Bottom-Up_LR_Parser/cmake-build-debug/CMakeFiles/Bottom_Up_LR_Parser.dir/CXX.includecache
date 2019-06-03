@@ -6,15 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.cpp
+bottom_up_lr_parser.h
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.h
+
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.h
 global.h
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/global.h
 generate_LR_pt.h
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.h
 
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_first.cpp
+cal_first.h
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_first.h
+
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_first.h
 global.h
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/global.h
+
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_follow.cpp
+cal_follow.h
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_follow.h
 
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/cal_follow.h
 global.h
@@ -31,6 +43,10 @@ global.h
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/global.h
 fstream
 -
+
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.cpp
+generate_LR_pt.h
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.h
 
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/generate_LR_pt.h
 global.h
@@ -69,6 +85,10 @@ bottom_up_lr_parser.h
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/bottom_up_lr_parser.h
 unistd.h
 -
+
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/proc_production.cpp
+proc_production.h
+/home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/proc_production.h
 
 /home/karaya_12/Coding/Compiler Principles/Assignment V/Bottom-Up_LR_Parser/proc_production.h
 global.h

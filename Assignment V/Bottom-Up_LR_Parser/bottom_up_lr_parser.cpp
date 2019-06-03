@@ -52,8 +52,8 @@ void bottom_up_lr_parse()
                 sta_parser.push(string(1, action_result[1]));  // Push State
                 inputLine.pop();
             }
-                // Case II --> Reduce Action
-                // * Action II --> 1 * Pop + 2 * Push Stack (LHS + goto State)
+            // Case II --> Reduce Action
+            // * Action II --> 1 * Pop + 2 * Push Stack (LHS + goto State)
             else if (action_result[0] == 'r') // Reduce Action
             {
                 cout << "Reduce Action - " << action_result << endl;
@@ -65,36 +65,36 @@ void bottom_up_lr_parse()
 
                 // 2. Push Corresponding Production LHS
                 string temp_top = sta_parser.top();
-                cout << "Reduce Action Based on Production - " << corr_production << endl;
+                cout << "Reduce to Production - " << corr_production << endl;
                 sta_parser.push(string(1, corr_production[0]));
                 // 3. Push goto(Reduce State, LHS) Result State
                 int col_goto = -1;
                 switch (corr_production[0])
                 {
-                    case 'E':
-                        col_goto = 0;
-                        break;
-                    case 'T':
-                        col_goto = 1;
-                        break;
-                    case 'F':
-                        col_goto = 2;
-                        break;
-                    default:
-                        break;
+                case 'E':
+                    col_goto = 0;
+                    break;
+                case 'T':
+                    col_goto = 1;
+                    break;
+                case 'F':
+                    col_goto = 2;
+                    break;
+                default:
+                    break;
                 }
                 sta_parser.push(pt_goto[stoi(temp_top)][col_goto]);
             }
-                // Case III --> Accept
-                // * Action III --> Finish + Break Out
+            // Case III --> Accept
+            // * Action III --> Finish + Break Out
             else if (action_result == "acc")
             {
-                cout << "LL(1) Grammar Non-Recursive Predictive Parsing Procedure Finished" << endl;
+                cout << "LR Bottom-Up Parsing Procedure Finished" << endl;
                 cout << "\n/*------------------------------------------------------------*/\n"
                      << endl;
                 break;
             }
-                // Case IV --> No Match in Parsing Table
+            // Case IV --> No Match in Parsing Table
             else
             {
                 cerr << "Error: Can not Find Match for Target State - '" << sta_parser.top()

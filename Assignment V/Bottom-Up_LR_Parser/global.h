@@ -1,5 +1,5 @@
-#ifndef TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GLOBAL_H
-#define TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GLOBAL_H
+#ifndef BOTTOM_UP_LR_PARSER_GLOBAL_H
+#define BOTTOM_UP_LR_PARSER_GLOBAL_H
 
 #include <set>
 #include <stack>
@@ -22,4 +22,4 @@ extern char FOLLOW_Result[MAX_ROWS][MAX_COLS];  // FOLLOW Set Result
 
 extern set<char>::iterator iter;
 
-#endif //TOP_DOWN_NON_RECURSIVE_PREDICTIVE_PARSER_GLOBAL_H
+#endif //BOTTOM_UP_LR_PARSER_GLOBAL_H
